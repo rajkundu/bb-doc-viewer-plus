@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Blackboard Document Viewer - New Tab",
+  "version": "1.0.0",
+
+  "description": "Adds 'Open in New Tab' button to Blackboard document viewer",
+
+  "icons": {
+    "48": "icons/icon-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.api.blackboard.com/*"],
+      "js": ["index.js"],
+      "all_frames": true
+    }
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{ade62bdd-db92-4829-8033-80fad58a0f49}"
+    }
+  }
+}
