@@ -33,7 +33,7 @@ waitForElement('div.toolbar-end-container').then((parent) => {
 	parent.appendChild(btnSpan);
 
     // Change title of page to filename of document being viewed
-    document.title = decodeURI(decodeURI(decodeURI(window.location.href).split("%26").find((s) => s.includes("filename")).split('UTF-8%27%27').slice(-1)));
+    document.title = decodeURI(decodeURI(decodeURI(window.location.href).split("%26").find((s) => s.includes("filename")).split('UTF-8').pop().split('%27%27').pop()));
 });
 
 // Esc = close topmost Blackboard pane
