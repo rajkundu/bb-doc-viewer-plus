@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Blackboard Document Viewer - New Tab",
+  "version": "2.0.0",
+
+  "description": "Adds 'Open in New Tab' button to Blackboard document viewer",
+
+  "icons": {
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.api.blackboard.com/*", "*://learn.bu.edu/*"],
+      "js": ["index.js"],
+      "all_frames": true
+    }
+  ]
+}

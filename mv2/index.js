@@ -31,4 +31,14 @@ waitForElement('div.toolbar-end-container').then((parent) => {
 	</a>
 	`;
 	parent.appendChild(btnSpan);
+
+    // Change title of page to filename of document being viewed
+    document.title = decodeURI(decodeURI(decodeURI(window.location.href).split("%26").find((s) => s.includes("filename")).split('UTF-8%27%27').slice(-1)));
 });
+
+// Esc = close topmost Blackboard pane
+document.addEventListener('keydown', (event) => {
+    if(event.key === "Escape") {
+        [...document.querySelectorAll("button.bb-close")].pop().click();
+    }
+}, false);
