@@ -1,3 +1,7 @@
+function getFilenameFromUri(uri) {
+    return decodeURI(decodeURI(decodeURI(uri).split("%26").find((s) => s.includes("filename")).split('UTF-8').pop().split('%27%27').pop()));
+}
+
 function waitForElement(selector) {
     return new Promise(resolve => {
         if (document.querySelector(selector)) {
@@ -33,12 +37,23 @@ waitForElement('div.toolbar-end-container').then((parent) => {
 	parent.appendChild(btnSpan);
 
     // Change title of page to filename of document being viewed
-    document.title = decodeURI(decodeURI(decodeURI(window.location.href).split("%26").find((s) => s.includes("filename")).split('UTF-8').pop().split('%27%27').pop()));
+    document.title = getFilenameFromUri(window.location.href);
 });
 
 // Esc = close topmost Blackboard pane
 document.addEventListener('keydown', (event) => {
-    if(event.key === "Escape") {
-        [...document.querySelectorAll("button.bb-close")].pop().click();
+    if (event.key === "Escape") {
+        var closeButtons = [...document.querySelectorAll("button.bb-close")];
+        if (closeButtons.length > 0){
+            closeButtons.pop().click();
+        }
     }
-}, false);
+});
+
+// Make files opened in new tab/window open in full view
+if (window.location.href.includes('/file/') && window.history.length == 1){
+    waitForElement('bb-file-preview iframe').then((iframe) => {
+        console.log("REDIRECTING to " + iframe.src);
+        window.location.assign(iframe.src);
+    });
+}
