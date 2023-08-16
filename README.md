@@ -9,5 +9,9 @@ A simple browser extension that makes various improvements to Blackboard, especi
 - Automatically maximizes Bb files opened in a new window/tab
   - Sets page title to document filename
 
+## Installation
+- Install Firefox Add-On: [Click here](https://addons.mozilla.org/en-US/firefox/addon/bb-doc-viewer-plus/)
+- Install Chrome Extension: [Click here](https://chrome.google.com/webstore/detail/dnlilodbhchkaleafgdopiolpmnkhnln)
+
 ## Disclaimer
 NOTE: This work is UNOFFICIAL, and neither it nor its contributor(s) are related to Blackboard, Inc. in any official capacity. Blackboard and Bb are trademarks of Blackboard, Inc.
