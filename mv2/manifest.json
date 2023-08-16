@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "Blackboard Document Viewer - New Tab",
-  "version": "2.1.1",
+  "name": "Bb Doc Viewer+",
+  "version": "2.2.0",
 
-  "description": "Adds 'Open in New Tab' button to Blackboard document viewer",
+  "description": "Various improvements to Blackboard, especially for viewing documents",
 
   "icons": {
     "48": "icon-48.png",
