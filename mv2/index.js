@@ -40,9 +40,20 @@ waitForElement('div.toolbar-end-container').then((parent) => {
     document.title = getFilenameFromUri(window.location.href);
 });
 
+let modalSelector = '.ms-Layer';
+var modalOpen = false;
+const modalObserver = new MutationObserver(mutations => {
+    modalOpen = document.querySelectorAll(modalSelector).length > 0;
+});
+modalObserver.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
 // Esc = close topmost Blackboard pane
 document.addEventListener('keydown', (event) => {
-    if (event.key === "Escape") {
+    // Esc pressed and no modals are currently open
+    if (event.key === "Escape" && !modalOpen) {
         var closeButtons = [...document.querySelectorAll("button.bb-close")];
         if (closeButtons.length > 0){
             closeButtons.pop().click();
